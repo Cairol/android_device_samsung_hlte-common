@@ -18,7 +18,9 @@
 
 set -e
 
-export INITIAL_COPYRIGHT_YEAR=2014
+if [ -z $INITIAL_COPYRIGHT_YEAR ]; then
+    export INITIAL_COPYRIGHT_YEAR=2014
+fi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -37,7 +39,7 @@ fi
 setup_vendor "$DEVICE_COMMON" "$VENDOR" "$CM_ROOT" true
 
 # Copyright headers and common guards
-write_headers "hlte hltetmo"
+write_headers "hlte hltechn hltetmo"
 
 write_makefiles "$MY_DIR"/common-proprietary-files.txt
 
@@ -49,6 +51,8 @@ setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 # Copyright headers and guards
 write_headers
 
-write_makefiles "$MY_DIR"/../$DEVICE/device-proprietary-files.txt
+for BLOB_LIST in "$MY_DIR"/../$DEVICE/device-proprietary-files*.txt; do
+    write_makefiles $BLOB_LIST
+done
 
 write_footers

@@ -1,5 +1,3 @@
-#
-# Copyright (C) 2014 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +13,13 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+""" Custom OTA commands for klte devices """
 
-ifneq ($(filter hlte hltechn hltetmo hltespr hlteusc hltevzw,$(TARGET_DEVICE)),)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-endif
+import common
+import re
+import os
+
+def FullOTA_InstallEnd(info):
+  info.script.Mount("/system")
+  info.script.AppendExtra('assert(run_program("/tmp/install/bin/variant_blobs.sh") == 0);')
+  info.script.Unmount("/system")
