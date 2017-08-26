@@ -366,7 +366,6 @@ etc/wifi/nvram_net.txt_murata|7b514f462fb555eb0608600fe26634bf354bcc0d
 etc/wifi/nvram_net.txt_muratafem1|40dfcd74b14def9a292455ad00c6280fae6975eb
 etc/wifi/nvram_net.txt_semco3rd
 etc/wifi/nvram_net.txt_wisol
-etc/wifi/wpa_supplicant.conf
 
 # Widevine (Samsung zero - G920FXXU5EQBA_G920FOJV5EQBB_XSG)
 vendor/lib/mediadrm/libwvdrmengine.so|e669e2fbc352b4e38f4c7ea27c805e1619e9d4ca
