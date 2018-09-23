@@ -451,7 +451,7 @@ on property:wlan.driver.status=ok
     start macloader
 
 on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler row
+    write /sys/block/mmcblk0/queue/scheduler deadline
 
     # post boot
     setprop sys.perf.profile 1
