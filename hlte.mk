@@ -27,6 +27,17 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-rr
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    bt_stack.conf \
+    bt_did.conf \
+    auto_pair_devlist.conf \
+    iot_devlist.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/iop_bt.db:system/etc/bluetooth/iop_bt.db \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
